@@ -1,4 +1,4 @@
-package com.ceph.sephs3.connection;
+package com.ceph.cephs3.connection;
 
 import org.springframework.beans.factory.annotation.Value;
 

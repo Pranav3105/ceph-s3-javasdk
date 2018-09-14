@@ -1,4 +1,4 @@
-package com.ceph.sephs3.operation;
+package com.ceph.cephs3.operation;
 
 import java.io.File;
 
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.PutObjectRequest;
-import com.ceph.sephs3.connection.ConnectionUtility;
+import com.ceph.cephs3.connection.ConnectionUtility;
 
 /**
  * @author Pranav
