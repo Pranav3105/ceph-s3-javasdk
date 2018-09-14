@@ -10,30 +10,38 @@ import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
+/**
+ * @author Pranav
+ *
+ */
 public class ConnectionUtility {
-	
+
 	private static AmazonS3 connection = null;
-	
+
 	@Value("{access.key}")
 	private static String accessKey;
-	
+
 	@Value("{secret.key}")
 	private static String secretKey;
-	
+
 	@Value("{endpoint}")
 	private static String endpoint;
-	
-	private ConnectionUtility() {}
-	
+
+	private ConnectionUtility() {
+	}
+
+	/**
+	 * @return The connection to ceph rgw instance
+	 */
 	public static AmazonS3 getConnection() {
-		if(connection == null) {
+		if (connection == null) {
 			AWSCredentials awsCredentials = new BasicAWSCredentials(accessKey, secretKey);
 			connection = AmazonS3ClientBuilder.standard()
 					.withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
-					.withEndpointConfiguration(new EndpointConfiguration(endpoint, Regions.AP_SOUTH_1.toString())).build();
+					.withEndpointConfiguration(new EndpointConfiguration(endpoint, Regions.AP_SOUTH_1.toString()))
+					.build();
 		}
 		return connection;
 	}
-	
 
 }
